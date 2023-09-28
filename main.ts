@@ -701,6 +701,7 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
     }
 })
 function startlevel () {
+    music.stopAllSounds()
     sprites.destroyAllSpritesOfKind(SpriteKind.Enemy)
     sprites.destroyAllSpritesOfKind(SpriteKind.StatusBar)
     sprites.destroyAllSpritesOfKind(SpriteKind.boss)
@@ -709,6 +710,27 @@ function startlevel () {
         scene.setBackgroundColor(10)
     } else {
         scene.setBackgroundColor(1)
+    }
+    if (blockSettings.readNumber("zoon") == 1) {
+        music.play(music.createSong(assets.song`wwww`), music.PlaybackMode.LoopingInBackground)
+    }
+    if (blockSettings.readNumber("zoon") == 2) {
+        music.play(music.createSong(assets.song`wwww`), music.PlaybackMode.LoopingInBackground)
+    }
+    if (blockSettings.readNumber("zoon") == 3) {
+        music.play(music.createSong(assets.song`3`), music.PlaybackMode.UntilDone)
+    }
+    if (blockSettings.readNumber("zoon") == 4) {
+        music.play(music.createSong(assets.song`4`), music.PlaybackMode.UntilDone)
+    }
+    if (blockSettings.readNumber("zoon") == 5) {
+        music.play(music.createSong(assets.song`5`), music.PlaybackMode.UntilDone)
+    }
+    if (blockSettings.readNumber("zoon") == 6) {
+        music.play(music.createSong(assets.song`6`), music.PlaybackMode.UntilDone)
+    }
+    if (blockSettings.readNumber("zoon") == 7) {
+        music.play(music.createSong(assets.song`7`), music.PlaybackMode.UntilDone)
     }
     tiles.setCurrentTilemap(tileUtil.cloneMap(list[zoons]))
     for (let value of tiles.getTilesByType(assets.tile`myTile9`)) {
@@ -963,6 +985,8 @@ function startlevel () {
         sprites.setDataNumber(SPREMEMY, "Type", 3)
     }
     for (let value2 of tiles.getTilesByType(assets.tile`myTile26`)) {
+        music.stopAllSounds()
+        music.play(music.createSong(assets.song`witch music`), music.PlaybackMode.LoopingInBackground)
         SPREMEMY = sprites.create(img`
             ..ffff..fffffffffff.............
             .f....f.fafafffffff.............
@@ -1246,6 +1270,7 @@ function startlevel () {
         SPREMEMY.setFlag(SpriteFlag.BounceOnWall, true)
     }
     for (let value2 of tiles.getTilesByType(assets.tile`myTile70`)) {
+        music.play(music.createSong(assets.song`hunter music`), music.PlaybackMode.LoopingInBackground)
         SPREMEMY = sprites.create(img`
             ................................................................
             ................................................................
@@ -2121,6 +2146,7 @@ function startlevel () {
         statusbar.setPosition(79, 108)
     }
     for (let value2 of tiles.getTilesByType(assets.tile`myTile96`)) {
+        music.play(music.createSong(assets.song`totem music`), music.PlaybackMode.LoopingInBackground)
         SPREMEMY = sprites.create(img`
             .................................................................
             .............................a...................................
@@ -2466,7 +2492,6 @@ let Item232: Sprite = null
 let attack = false
 let menus = false
 let dash2 = false
-music.play(music.createSong(assets.song`wwww`), music.PlaybackMode.LoopingInBackground)
 dash2 = false
 let Transtilemap = true
 menus = true
